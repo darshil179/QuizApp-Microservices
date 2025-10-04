@@ -3,7 +3,7 @@ package com.darshil.quizapp.controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.darshil.quizapp.Question;
+import com.darshil.quizapp.model.Question;
 import com.darshil.quizapp.service.QuestionsService;
 
 import java.util.List;
