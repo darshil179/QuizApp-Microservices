@@ -1,6 +1,8 @@
 package com.darshil.quizapp.service;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -11,6 +13,7 @@ import com.darshil.quizapp.dao.QuestionDao;
 import com.darshil.quizapp.dao.QuizDao;
 import com.darshil.quizapp.model.Quiz;
 import com.darshil.quizapp.model.Question;
+import com.darshil.quizapp.model.QuestionWrapper;
 
 
 
@@ -29,6 +32,19 @@ public class QuizService {
         quiz.setQuestions(questions);
         quizDao.save(quiz);
         return new ResponseEntity<>("success", HttpStatus.CREATED);
+    }
+
+    public ResponseEntity<List<QuestionWrapper>> getQuizQuestions(Integer id){
+        Optional<Quiz> quiz = quizDao.findById(id);
+
+        List<Question> questionsFromDB = quiz.get().getQuestions();
+        List<QuestionWrapper> questioForUser = new ArrayList<>();
+
+        for(){
+            
+        }
+
+        return new ResponseEntity<>(questioForUser, HttpStatus.OK);
     }
 
 }
