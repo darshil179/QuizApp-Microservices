@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import com.darshil.quizapp.dao.QuestionDao;
 import com.darshil.quizapp.dao.QuizDao;
 import com.darshil.quizapp.model.Quiz;
+import com.darshil.quizapp.model.Response;
 import com.darshil.quizapp.model.Question;
 import com.darshil.quizapp.model.QuestionWrapper;
 
@@ -46,6 +47,15 @@ public class QuizService {
         }
 
         return new ResponseEntity<>(questioForUser, HttpStatus.OK);
+    }
+
+    public ResponseEntity<Integer> calculateResult(Integer id, List<Response> responses){
+        Quiz quiz = quizDao.findById(id).get();
+        List<Question> questions = quiz.getQuestions();
+        int correct = 0;
+        for(Response response : responses){
+
+        }
     }
 
 }
