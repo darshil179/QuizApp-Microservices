@@ -53,9 +53,14 @@ public class QuizService {
         Quiz quiz = quizDao.findById(id).get();
         List<Question> questions = quiz.getQuestions();
         int correct = 0;
+        int i = 0;
         for(Response response : responses){
+            if(response.getResponse().equals(questions.get(i).getRightAnswer()))
+            correct++;
 
+            i++;
         }
+        return new ResponseEntity<>(correct, HttpStatus.OK);
     }
 
 }
